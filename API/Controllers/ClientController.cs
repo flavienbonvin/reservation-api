@@ -40,6 +40,7 @@ namespace API.Controllers
         public void PostClient([FromBody]Client client)
         {
             context.Clients.Add(client);
+            context.SaveChanges();
         }
     }
 }
