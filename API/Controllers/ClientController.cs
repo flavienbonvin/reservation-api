@@ -95,6 +95,14 @@ namespace API.Controllers
                 return NotFound();
             }
 
+            ReservationController reservationController = new ReservationController();
+
+            foreach (Reservation r in db.Reservations.ToArray())
+            {
+                if (r.Client.Id == id)
+                    db.Reservations.Remove(r);
+            }
+            
             db.Clients.Remove(client);
             db.SaveChanges();
 
